@@ -1,0 +1,10 @@
+{
+  "id": "highuid",
+  "groups": [
+    "evertrue"
+  ],
+  "uid": 10000,
+  "shell": "/sbin/nologin",
+  "comment": "High UID dummy user",
+  "action": "remove"
+}

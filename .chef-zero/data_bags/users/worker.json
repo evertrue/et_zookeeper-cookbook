@@ -1,0 +1,9 @@
+{
+  "groups": [
+    "evertrue"
+  ],
+  "comment": "Default worker, set up by Chef",
+  "id": "worker",
+  "uid": 1007,
+  "shell": "/bin/bash"
+}
