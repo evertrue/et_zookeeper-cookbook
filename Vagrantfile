@@ -75,7 +75,7 @@ Vagrant.configure("2") do |config|
 
   config.omnibus.chef_version = :latest
 
-  config.vm.synced_folder "vagrantsync/", "/vagrantsync"
+  #config.vm.synced_folder "vagrantsync/", "/vagrantsync"
 
   if ENV['CHEF_REPO']
     chef_repo = ENV['CHEF_REPO']
