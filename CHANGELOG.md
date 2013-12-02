@@ -1,3 +1,8 @@
+## 0.1.2
+
+* Clean up Gemfile
+* Ensure using latest Berkshelf, Test Kitchen, Kitchen Vagrant gems
+
 ## 0.1.1
 
 * Move data from /tmp to /mnt
