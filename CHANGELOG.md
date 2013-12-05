@@ -1,3 +1,7 @@
+## 1.0.0
+
+* Bump version number to reflect production usage
+
 ## 0.1.2
 
 * Clean up Gemfile
