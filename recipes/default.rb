@@ -7,24 +7,25 @@
 # All rights reserved - Do Not Redistribute
 #
 
-node.set['java']['jdk_version'] = "7"
+server_number = 2
 
-case node['platform_family']
-  when "debian"
-   include_recipe "apt"
+search(:node,"roles:zookeeper AND " +
+  "chef_environment:#{node.chef_environment}").each do |n|
+  unless n.name == node.name
+    node.set['et_exhibitor']['defaultconfig']['zoo_cfg_extra']["server.#{server_number}"] = "#{n['ipaddress']}\:2888\:3888"
+    Chef::Log.info("ADDING SERVER: " + "#{n['ipaddress']}\:2888\:3888")
+    server_number += 1
+  end
 end
-
-node.set[:build_essential][:compiletime] = true
-
-package "build-essential" do
-  action :nothing
-end.run_action(:install)
 
 node.set['exhibitor']['defaultconfig']['zoo_cfg_extra'] = node['et_exhibitor']['defaultconfig']['zoo_cfg_extra'].map { |k,v|
     "#{k}\\=#{v}"
   }.join('&')
 
 include_recipe "build-essential"
+
+node.override['java']['jdk_version'] = "7"
+
 include_recipe "zookeeper"
 
 link "/etc/init.d/exhibitor" do
