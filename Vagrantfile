@@ -91,55 +91,54 @@ Vagrant.configure('2') do |config|
   config.vm.synced_folder "#{ENV['HOME']}/.chef", '/tmp/local-chef'
 
   case ENV['VAGRANT_DEFAULT_PROVIDER']
-  when 'aws'
-    config.vm.provision :shell, :inline => 'curl -s -L https://www.opscode.com/chef/install.sh | sudo bash'
+    when 'aws'
+      config.vm.provision :shell, :inline => 'curl -s -L https://www.opscode.com/chef/install.sh | sudo bash'
 
-    config.chef_zero.chef_repo_path = '.chef-zero/'
+      config.chef_zero.chef_repo_path = '.chef-zero/'
 
-    config.vm.provision :chef_solo do |chef|
-      chef.json = {
-        'test_run' => true
-      }
-      #chef.encrypted_data_bag_secret = "/tmp/local-chef/encrypted_data_bag_secret"
-      #chef.environment = "stage"
-      chef.data_bags_path = "#{chef_repo}/data_bags"
-      chef.encrypted_data_bag_secret_key_path = "#{ENV['HOME']}/.chef/encrypted_data_bag_secret"
-      chef.node_name = 'et-zookeeper-berkshelf'
-      chef.log_level = :debug
-      chef.cookbooks_path = "#{ENV['HOME']}/git_repos/evertrue/cookbooks"
-      chef.run_list = [
-        'recipe[et_zookeeper::default]'
-      ]
-    end
-  else
-    config.vm.provision :shell, :inline => 'sudo apt-get purge -y ruby1.8 ruby1.8-dev libaugeas0 augeas-lenses libruby libshadow-ruby1.8 libruby1.8 rubygems1.8 binutils build-essential cpp cpp-4.6 dpkg-dev fakeroot g++ g++-4.6 gcc gcc-4.6 libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libc-dev-bin libc6-dev libdpkg-perl libgomp1 libmpc2 libmpfr4 libquadmath0 libstdc++6-4.6-dev linux-libc-dev make manpages-dev'
+      config.vm.provision :chef_solo do |chef|
+        chef.json = {
+          'test_run' => true
+        }
+        #chef.encrypted_data_bag_secret = "/tmp/local-chef/encrypted_data_bag_secret"
+        #chef.environment = "stage"
+        chef.data_bags_path = "#{chef_repo}/data_bags"
+        chef.encrypted_data_bag_secret_key_path = "#{ENV['HOME']}/.chef/encrypted_data_bag_secret"
+        chef.node_name = 'et-zookeeper-berkshelf'
+        chef.log_level = :debug
+        chef.cookbooks_path = "#{ENV['HOME']}/git_repos/evertrue/cookbooks"
+        chef.run_list = [
+          'recipe[et_zookeeper::default]'
+        ]
+      end
+    else
+      config.vm.provision :shell, :inline => 'sudo apt-get purge -y ruby1.8 ruby1.8-dev libaugeas0 augeas-lenses libruby libshadow-ruby1.8 libruby1.8 rubygems1.8 binutils build-essential cpp cpp-4.6 dpkg-dev fakeroot g++ g++-4.6 gcc gcc-4.6 libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libc-dev-bin libc6-dev libdpkg-perl libgomp1 libmpc2 libmpfr4 libquadmath0 libstdc++6-4.6-dev linux-libc-dev make manpages-dev'
 
-    config.omnibus.chef_version = :latest
+      config.omnibus.chef_version = :latest
 
-    config.chef_zero.chef_repo_path = '.chef-zero/'
+      config.chef_zero.chef_repo_path = '.chef-zero/'
 
-    config.vm.provision :shell, :inline => 'mkdir -p /mnt/elasticsearch'
+      config.vm.provision :shell, :inline => 'mkdir -p /mnt/elasticsearch'
 
-    config.vm.provision :chef_client do |chef|
-
-      chef.json = {
-        'ec2' => {
-          'block_device_mapping_ephemeral0' => 'sda2'
-        },
-        'filesystem' => {
-          '/dev/xvda2' => {
-            'mount' => '/mnt'
+      config.vm.provision :chef_client do |chef|
+        chef.json = {
+          'ec2' => {
+            'block_device_mapping_ephemeral0' => 'sda2'
+          },
+          'filesystem' => {
+            '/dev/xvda2' => {
+              'mount' => '/mnt'
+            }
           }
         }
-      }
 
-      chef.encrypted_data_bag_secret = '/tmp/local-chef/encrypted_data_bag_secret'
-      chef.environment = 'stage'
-      chef.log_level = 'info'
+        chef.encrypted_data_bag_secret = '/tmp/local-chef/encrypted_data_bag_secret'
+        chef.environment = 'stage'
+        chef.log_level = 'info'
 
-      chef.run_list = [
+        chef.run_list = [
           'recipe[et_zookeeper::default]'
-      ]
-    end
+        ]
+      end
   end
 end
