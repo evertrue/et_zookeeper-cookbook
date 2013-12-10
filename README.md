@@ -1,11 +1,12 @@
 # et_zookeeper cookbook
 
-Wrapper cookbook for @SimpleFinance’s [zookeeper cookbook]
-(https://github.com/SimpleFinance/chef-zookeeper). In addition to using the
-`zookeeper` cookbook to install Exhibitor and Zookeeper, this cookbook sets up
-and enables [shared configuration using S3 for Exhibitor]
-(https://github.com/Netflix/exhibitor/wiki/Shared-Configuration), allowing
-Exhibitor to handle any additional configuration of the Zookeeper ensemble.
+Wrapper cookbook for [SimpleFinance’s](https://github.com/SimpleFinance)
+[zookeeper cookbook](https://github.com/SimpleFinance/chef-zookeeper).
+In addition to using the `zookeeper` cookbook to install Exhibitor and
+Zookeeper, this cookbook sets up and enables [shared configuration using S3
+for Exhibitor](https://github.com/Netflix/exhibitor/wiki/Shared-Configuration),
+allowing Exhibitor to handle any additional configuration of the Zookeeper
+ensemble.
 
 # Requirements
 
