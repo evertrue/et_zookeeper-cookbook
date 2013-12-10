@@ -47,7 +47,5 @@ link '/etc/init.d/exhibitor' do
   to '/lib/init/upstart-job'
 end
 
-service 'exhibitor' do
-  supports status: true, restart: true
-  action [:enable, :start]
-end
+s = resources(:service => 'exhibitor')
+s.action [:enable, :start]
