@@ -1,3 +1,7 @@
+## 1.1.2
+
+* Ensure Exhibitor auto-manages instances by default
+
 ## 1.1.1
 
 * Bump version number to unstick servers that already got a bad v1.1.0 version

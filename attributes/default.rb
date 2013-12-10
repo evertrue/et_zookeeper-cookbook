@@ -16,7 +16,7 @@ default['et_exhibitor']['defaultconfig']['zoo_cfg_extra'] = {
   'autopurge.purgeInterval' => '1'
 }
 
-set['exhibitor']['defaultconfig']['auto_manage_instances'] = 0
+set['exhibitor']['defaultconfig']['auto_manage_instances'] = 1
 
 default['java']['jdk_version'] = '7'
 default[:build_essential][:compiletime] = true
