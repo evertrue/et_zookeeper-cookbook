@@ -1,3 +1,7 @@
+## 1.1.1
+
+* Bump version number to unstick servers that already got a bad v1.1.0 version
+
 ## 1.1.0
 
 * Add S3 shared config for Exhibitor
