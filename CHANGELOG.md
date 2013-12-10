@@ -1,3 +1,9 @@
+## 1.1.0
+
+* Add S3 shared config for Exhibitor
+* Don't redefine `exhibitor` service in order to enable it
+* Clean up Ruby formatting as per Rubocop
+
 ## 1.0.0
 
 * Bump version number to reflect production usage
