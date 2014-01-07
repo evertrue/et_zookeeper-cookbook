@@ -13,8 +13,6 @@ node.set['exhibitor']['defaultconfig']['zoo_cfg_extra'] = node['et_exhibitor']['
 
 include_recipe 'build-essential'
 
-node.override['java']['jdk_version'] = '7'
-
 include_recipe 'zookeeper'
 
 # Load encrypted credentials
