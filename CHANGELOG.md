@@ -1,3 +1,7 @@
+## 1.1.3
+
+* Update to Exhibitor 1.5.1 (released 2013-10-01)
+
 ## 1.1.2
 
 * Ensure Exhibitor auto-manages instances by default
