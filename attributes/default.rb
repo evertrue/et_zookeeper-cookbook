@@ -2,6 +2,9 @@ set[:exhibitor][:snapshot_dir] = '/mnt/zookeeper'
 set[:exhibitor][:transaction_dir] = '/mnt/zookeeper'
 set[:exhibitor][:log_index_dir] = '/mnt/zookeeper_log_indexes'
 
+# Version of Exhibitor to install w/ Gradle
+set[:exhibitor][:version] = '1.5.1'
+
 # Use S3 for Exhibitor's shared configuration
 set[:exhibitor][:opts][:configtype] = 's3'
 default[:exhibitor][:opts][:s3credentials] = "#{node[:zookeeper][:install_dir]}/s3.conf"
