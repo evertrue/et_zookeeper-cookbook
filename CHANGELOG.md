@@ -1,3 +1,9 @@
+## 1.1.4
+
+* Revert to Exhibitor 1.5.0 (1.5.1 doesn't stay up & running for some reason)
+* Remove unnecessary attribute setting
+* Clean up some code as per Rubocop
+
 ## 1.1.3
 
 * Update to Exhibitor 1.5.1 (released 2013-10-01)
