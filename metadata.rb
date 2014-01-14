@@ -8,5 +8,5 @@ version          '1.1.4'
 
 depends 'apt'
 depends 'build-essential'
-depends 'zookeeper'
+depends 'zookeeper',       '~> 1.4.9'
 depends 'java'

@@ -3,10 +3,15 @@ set[:exhibitor][:transaction_dir] = '/mnt/zookeeper'
 set[:exhibitor][:log_index_dir] = '/mnt/zookeeper_log_indexes'
 
 # Use S3 for Exhibitor's shared configuration
+
+# Load encrypted credentials
+aws_creds = Chef::EncryptedDataBagItem.load('secrets', 'aws_credentials')['ZookeeperS3']
+
 set[:exhibitor][:opts][:configtype] = 's3'
-default[:exhibitor][:opts][:s3credentials] = "#{node[:zookeeper][:install_dir]}/s3.conf"
-default[:exhibitor][:opts][:s3region] = 'us-east-1'
-default[:exhibitor][:opts][:s3config] = "ops.evertrue.com:zookeeper-#{node.chef_environment}"
+set[:exhibitor][:opts][:s3key] = aws_creds['access_key_id']
+set[:exhibitor][:opts][:s3secret] = aws_creds['secret_access_key']
+set[:exhibitor][:opts][:s3region] = 'us-east-1'
+set[:exhibitor][:opts][:s3config] = "ops.evertrue.com:zookeeper-#{node.chef_environment}"
 
 default['et_exhibitor']['defaultconfig']['zoo_cfg_extra'] = {
   'tickTime' => '2000',
