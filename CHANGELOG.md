@@ -1,3 +1,9 @@
+## 1.1.5
+
+* Update zookeeper cookbook to ~> 1.4.9
+* Adjust attributes to take advantage of fixes in [zookeeper v1.4.9](https://github.com/SimpleFinance/chef-zookeeper/compare/v1.4.8...v1.4.9) re: S3 Exhibitor config
+* Remove unnecessary code related to setting up Exhibitor's S3 config
+
 ## 1.1.4
 
 * Revert to Exhibitor 1.5.0 (1.5.1 doesn't stay up & running for some reason)
