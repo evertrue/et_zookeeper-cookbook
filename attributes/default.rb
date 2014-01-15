@@ -15,8 +15,8 @@ set[:exhibitor][:opts][:s3config] = "ops.evertrue.com:zookeeper-#{node.chef_envi
 
 default['et_exhibitor']['defaultconfig']['zoo_cfg_extra'] = {
   'tickTime' => '2000',
-  'initLimit' => '10',
-  'syncLimit' => '5',
+  'initLimit' => '11',
+  'syncLimit' => '17',
   'autopurge.snapRetainCount' => '20',
   'autopurge.purgeInterval' => '1'
 }
