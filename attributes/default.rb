@@ -8,8 +8,8 @@ set[:exhibitor][:log_index_dir] = '/mnt/zookeeper_log_indexes'
 aws_creds = Chef::EncryptedDataBagItem.load('secrets', 'aws_credentials')['ZookeeperS3']
 
 set[:exhibitor][:opts][:configtype] = 's3'
-set[:exhibitor][:opts][:s3key] = aws_creds['access_key_id']
-set[:exhibitor][:opts][:s3secret] = aws_creds['secret_access_key']
+set[:exhibitor][:s3key] = aws_creds['access_key_id']
+set[:exhibitor][:s3secret] = aws_creds['secret_access_key']
 set[:exhibitor][:opts][:s3region] = 'us-east-1'
 set[:exhibitor][:opts][:s3config] = "ops.evertrue.com:zookeeper-#{node.chef_environment}"
 
