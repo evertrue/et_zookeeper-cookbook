@@ -1,3 +1,7 @@
+## 1.1.6
+
+* Fix attributes used for S3 credentials
+
 ## 1.1.5
 
 * Update zookeeper cookbook to ~> 1.4.9
