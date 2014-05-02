@@ -1,3 +1,4 @@
+set['exhibitor']['version'] = '1.5.2'
 set['exhibitor']['snapshot_dir'] = '/mnt/zookeeper'
 set['exhibitor']['transaction_dir'] = '/mnt/zookeeper'
 set['exhibitor']['log_index_dir'] = '/mnt/zookeeper_log_indexes'
