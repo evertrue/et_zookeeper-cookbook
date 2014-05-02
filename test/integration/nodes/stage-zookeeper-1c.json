@@ -15,10 +15,6 @@
       "logs_to_forward": "*.*",
       "server_search": "role:loghost AND chef_environment:stage"
     },
-    "copperegg": {
-      "apikey": "Dbnfumv2xwWkg6Xp",
-      "alltags": "stage,zookeeper,"
-    },
     "networking": {
       "packages": [
         "lsof",
@@ -1518,23 +1514,6 @@
       ],
       "default_format": "RSYSLOG_SyslogProtocol23Format",
       "remote_format": "RSYSLOG_SyslogProtocol23Format"
-    },
-    "copperegg": {
-      "apikey": "YOUR_USER_APIKEY",
-      "tags": "",
-      "label": "",
-      "proxy": "",
-      "oom_protect": false,
-      "use_fqdn": false,
-      "include_chef_tags": true,
-      "include_roles_astags": true,
-      "include_env_astag": true,
-      "annotate_chefrun_success": false,
-      "annotate_chefrun_fail": true,
-      "remove_on_uninstall": false,
-      "create_sshprobe": false,
-      "must_restart": false,
-      "template_updated": false
     },
     "apache": {
       "root_group": "root",
