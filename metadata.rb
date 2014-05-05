@@ -1,3 +1,4 @@
+# rubocop:disable SingleSpaceBeforeFirstArg
 name             'et_zookeeper'
 maintainer       'EverTrue, Inc.'
 maintainer_email 'devops@evertrue.com'
