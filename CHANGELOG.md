@@ -2,6 +2,23 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v1.2.0 (2014-05-05)
+-------------------
+* Update to installing Exhibitor 1.5.2
+    * Fixes quite a few bugs, including one w/ the rolling restart
+* Fix the zoo.cfg extra properties to match production
+* Clean up unused config files
+* Set up Test Kitchen properly
+* Use Berkshelf 3
+* Add Rakefile with handy testing:
+    * Foodcritic
+    * Rubocop
+    * ChefSpec
+    * Test Kitchen w/ ServerSpec
+* Add ChefSpec tests
+* Add ServerSpec tests
+
+
 v1.1.6 (2014-01-15)
 -------------
 * Fix attributes used for S3 credentials
