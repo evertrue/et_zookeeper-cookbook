@@ -12,6 +12,11 @@ node.set['exhibitor']['defaultconfig']['zoo_cfg_extra'] =
   .map { |k, v| "#{k}\\=#{v}" }
   .join '&'
 
+case node['platform_family']
+when 'debian'
+  include_recipe 'apt'
+end
+
 include_recipe 'build-essential'
 
 include_recipe 'zookeeper'
