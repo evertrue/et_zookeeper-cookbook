@@ -26,4 +26,7 @@ set['exhibitor']['defaultconfig']['auto_manage_instances'] = 1
 
 default['java']['jdk_version'] = '7'
 default['build_essential']['compiletime'] = true
-set['zookeeper']['mirror'] = 'http://mirror.metrocast.net/apache/zookeeper/zookeeper-3.4.5/zookeeper-3.4.5.tar.gz'
+
+set['zookeeper']['version'] = '3.4.6'
+set['zookeeper']['mirror'] = 'http://apache.petsads.us/zookeeper/current/zookeeper-3.4.6.tar.gz'
+set['zookeeper']['checksum'] = '01b3938547cd620dc4c93efe07c0360411f4a66962a70500b163b59014046994'
