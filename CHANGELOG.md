@@ -2,6 +2,13 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v1.2.1 (2014-11-06)
+-------------------
+* Update to installing Zookeeper 3.4.6
+* Fix mirror to use for downloading ZK
+* Use Supermarket for community cookbooks
+* Fix Serverspec spec_helper
+
 v1.2.0 (2014-05-05)
 -------------------
 * Update to installing Exhibitor 1.5.2
