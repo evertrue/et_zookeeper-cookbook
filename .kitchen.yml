@@ -4,19 +4,17 @@ driver:
   name: vagrant
   customize:
     memory: 1024
-  driver_config:
-    require_chef_omnibus: true
-    # tags:
-    #   Name: test-et-zookeeper
-    #   Role: et_zookeeper Testing
-    #   Env: dev
-    #   created-by: test-kitchen
+  # tags:
+  #   Name: test-et-zookeeper
+  #   Role: et_zookeeper Testing
+  #   Env: dev
+  #   created-by: test-kitchen
 
 provisioner:
   name: chef_zero
   encrypted_data_bag_secret_key_path: ~/.chef/encrypted_data_bag_secret
-  data_bags_path: ../../data_bags
-  environments_path: ../../environments
+  data_bags_path: <%= ENV['CHEF_REPO'] %>/data_bags
+  environments_path: <%= ENV['CHEF_REPO'] %>/environments
   client_rb:
     environment: '_default'
 
