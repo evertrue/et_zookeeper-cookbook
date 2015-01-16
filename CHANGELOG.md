@@ -2,6 +2,11 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v2.0.0 (2015-01-16)
+-------------------
+* Refactor using zookeeper ~> v2.0 & exhibitor ~> 0.4.0 cookbooks
+* Clean up some configs
+
 v1.2.1 (2014-11-06)
 -------------------
 * Update to installing Zookeeper 3.4.6
