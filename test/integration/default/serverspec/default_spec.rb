@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe 'Exhibitor Service' do
-  describe file '/etc/init.d/exhibitor' do
-    it { should be_linked_to '/lib/init/upstart-job' }
-  end
-
   describe file '/opt/exhibitor/exhibitor.s3.properties' do
     it { should be_file }
     its(:content) { should include 'com.netflix.exhibitor.s3.access-key-id=' }
@@ -21,7 +17,7 @@ describe 'Exhibitor Service' do
     end
   end
 
-  describe file '/etc/init/exhibitor.conf' do
+  describe file '/etc/sv/exhibitor/run' do
     it { should be_file }
     its(:content) { should include '--configtype s3' }
     its(:content) { should include '--s3config ops.evertrue.com:zookeeper-' }
@@ -34,7 +30,6 @@ describe 'Exhibitor Service' do
   end
 
   describe service 'exhibitor' do
-    it { should be_enabled }
     it { should be_running }
   end
 end
