@@ -21,6 +21,8 @@ ensemble.
 
 Include the default recipe in a node’s run list.
 
+If using with the [`apache_storm` cookbook](https://github.com/evertrue/apache_storm-cookbook), also ensure `role[zookeeper]` is included in the run list.
+
 # Attributes
 
 Attributes we override in the two base cookbooks:
