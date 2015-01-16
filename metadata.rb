@@ -9,5 +9,6 @@ version          '1.2.1'
 
 depends 'apt'
 depends 'build-essential'
-depends 'zookeeper',       '~> 1.4.9'
+depends 'zookeeper',       '~> 2.5'
+depends 'exhibitor'
 depends 'java'

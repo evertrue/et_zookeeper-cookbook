@@ -7,23 +7,14 @@
 # All rights reserved - Do Not Redistribute
 #
 
-node.set['exhibitor']['defaultconfig']['zoo_cfg_extra'] =
-  node['et_exhibitor']['defaultconfig']['zoo_cfg_extra']
-  .map { |k, v| "#{k}\\=#{v}" }
-  .join '&'
-
 case node['platform_family']
 when 'debian'
   include_recipe 'apt'
 end
 
-include_recipe 'build-essential'
+node.set['exhibitor']['config']['zoo_cfg_extra'] =
+  node['et_exhibitor']['defaultconfig']['zoo_cfg_extra']
+    .map { |k, v| "#{k}\\=#{v}" }.join '&'
 
-include_recipe 'zookeeper'
-
-link '/etc/init.d/exhibitor' do
-  to '/lib/init/upstart-job'
-end
-
-s = resources(service: 'exhibitor')
-s.action [:enable, :start]
+include_recipe 'exhibitor'
+include_recipe 'exhibitor::service'
