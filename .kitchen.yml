@@ -17,7 +17,7 @@ provisioner:
   environments_path: <%= ENV['CHEF_REPO'] %>/environments
 
 platforms:
-- name: ubuntu-12.04
+- name: ubuntu-14.04
 
 suites:
 - name: default
