@@ -1,5 +1,5 @@
-default['java']['jdk_version'] = '7'
-default['build_essential']['compiletime'] = true
+set['java']['jdk_version'] = '7'
+set['build_essential']['compiletime'] = true
 
 set['zookeeper']['service_style'] = 'exhibitor'
 
