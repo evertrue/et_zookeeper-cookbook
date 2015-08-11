@@ -2,6 +2,14 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v2.0.1 (2015-08-11)
+-------------------
+* Update exhibitor cookbook
+    - Drop zookeeper as a dependency b/c exhibitor already depends on it
+* Add `zookeeper-env.sh` attribute values to move `zookeeper.out` log & lower log noise
+* Switch to running Test Kitchen using EC2
+* Drop using real data bag items in favor of dummy items
+
 v2.0.0 (2015-01-16)
 -------------------
 * Refactor using zookeeper ~> v2.0 & exhibitor ~> 0.4.0 cookbooks
