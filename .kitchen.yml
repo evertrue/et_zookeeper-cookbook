@@ -1,14 +1,19 @@
 ---
 driver:
-  name: vagrant
-  customize:
-    memory: 2048
-  # name: ec2
-  # tags:
-  #   Name: test-et-zookeeper
-  #   Role: et_zookeeper Testing
-  #   Env: dev
-  #   created-by: test-kitchen
+  name: ec2
+  aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_NAME'] %>
+  security_group_ids: ['ci-testing']
+  image_id: ami-bbef47d0
+  instance_type: m1.large
+  interface: public
+  transport:
+    ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
+  tags:
+    Name: test-et-zookeeper
+    Env: public
+    Type: test
+    created-by: test-kitchen
+  iam_profile_name: zookeeper
 
 provisioner:
   name: chef_zero
