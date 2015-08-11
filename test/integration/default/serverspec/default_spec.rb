@@ -1,5 +1,13 @@
 require 'spec_helper'
 
+describe 'Zookeeper config' do
+  describe file '/opt/zookeeper/zookeeper-3.4.6/conf/zookeeper-env.sh' do
+    it { should be_file }
+    its(:content) { should include 'ZOO_LOG_DIR=/mnt/zookeeper' }
+    its(:content) { should include 'ZOO_LOG4J_PROP=INFO,ROLLINGFILE' }
+  end
+end
+
 describe 'Exhibitor Service' do
   describe file '/opt/exhibitor/exhibitor.s3.properties' do
     it { should be_file }
