@@ -3,8 +3,8 @@ require 'spec_helper'
 describe 'Exhibitor Service' do
   describe file '/opt/exhibitor/exhibitor.s3.properties' do
     it { should be_file }
-    its(:content) { should include 'com.netflix.exhibitor.s3.access-key-id=' }
-    its(:content) { should include 'com.netflix.exhibitor.s3.access-secret-key=' }
+    its(:content) { should include 'FAKE_ACCESS_KEY' }
+    its(:content) { should include 'FAKE_SECRET_KEY' }
   end
 
   describe file '/opt/exhibitor/exhibitor.properties' do

@@ -12,9 +12,6 @@ driver:
 
 provisioner:
   name: chef_zero
-  encrypted_data_bag_secret_key_path: ~/.chef/encrypted_data_bag_secret
-  data_bags_path: <%= ENV['CHEF_REPO'] %>/data_bags
-  environments_path: <%= ENV['CHEF_REPO'] %>/environments
 
 platforms:
 - name: ubuntu-14.04

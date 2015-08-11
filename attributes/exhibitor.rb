@@ -5,12 +5,7 @@ set['exhibitor']['log_index_dir'] = '/mnt/zookeeper_log_indexes'
 
 # Use S3 for Exhibitor's shared configuration
 
-# Load encrypted credentials
-aws_creds = Chef::EncryptedDataBagItem.load('secrets', 'aws_credentials')['ZookeeperS3']
-
 set['exhibitor']['cli']['configtype'] = 's3'
-set['exhibitor']['s3']['access-key-id'] = aws_creds['access_key_id']
-set['exhibitor']['s3']['access-secret-key'] = aws_creds['secret_access_key']
 set['exhibitor']['cli']['s3region'] = 'us-east-1'
 set['exhibitor']['cli']['s3config'] = "ops.evertrue.com:zookeeper-#{node.chef_environment}"
 

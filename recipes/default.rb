@@ -12,6 +12,11 @@ when 'debian'
   include_recipe 'apt'
 end
 
+# Set credentials for S3 access
+aws_creds = data_bag_item('secrets', 'aws_credentials')['ZookeeperS3']
+node.set['exhibitor']['s3']['access-key-id'] = aws_creds['access_key_id']
+node.set['exhibitor']['s3']['access-secret-key'] = aws_creds['secret_access_key']
+
 node.set['exhibitor']['config']['zoo_cfg_extra'] =
   node['et_exhibitor']['defaultconfig']['zoo_cfg_extra']
     .map { |k, v| "#{k}\\=#{v}" }.join '&'
