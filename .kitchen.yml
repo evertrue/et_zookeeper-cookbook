@@ -6,14 +6,15 @@ driver:
   image_id: ami-bbef47d0
   instance_type: m1.large
   interface: public
-  transport:
-    ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
   tags:
     Name: test-et-zookeeper
     Env: public
     Type: test
     created-by: test-kitchen
   iam_profile_name: zookeeper
+
+transport:
+  ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
 
 provisioner:
   name: chef_zero
