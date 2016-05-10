@@ -14,6 +14,7 @@ driver:
   iam_profile_name: zookeeper
 
 transport:
+  name: sftp
   ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
 
 provisioner:
