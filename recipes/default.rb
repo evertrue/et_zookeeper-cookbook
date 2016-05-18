@@ -19,7 +19,7 @@ node.set['exhibitor']['s3']['access-secret-key'] = aws_creds['secret_access_key'
 
 node.set['exhibitor']['config']['zoo_cfg_extra'] =
   node['et_exhibitor']['defaultconfig']['zoo_cfg_extra']
-    .map { |k, v| "#{k}\\=#{v}" }.join '&'
+  .map { |k, v| "#{k}\\=#{v}" }.join '&'
 
 include_recipe 'exhibitor'
 include_recipe 'exhibitor::service'

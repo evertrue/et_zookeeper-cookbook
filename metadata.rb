@@ -9,5 +9,5 @@ version          '2.0.1'
 
 depends 'apt'
 depends 'build-essential'
-depends 'exhibitor',       '~> 0.5.0'
+depends 'exhibitor', '~> 0.5.0'
 depends 'java'
