@@ -2,6 +2,12 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v3.0.0 (2016-05-18)
+-------------------
+* Update `exhibitor` cookbook
+    - Also updates the `zookeeper` cookbook, bringing in a bunch of fixes
+* Fix up testing
+
 v2.0.1 (2015-08-11)
 -------------------
 * Update exhibitor cookbook
