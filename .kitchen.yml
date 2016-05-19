@@ -11,6 +11,7 @@ driver:
     Env: public
     Type: test
     created-by: test-kitchen
+    Operator: <%= ENV['USER'] %>
   iam_profile_name: zookeeper
 
 transport:
