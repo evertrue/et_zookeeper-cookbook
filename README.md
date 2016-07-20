@@ -11,7 +11,6 @@ ensemble.
 
 # Requirements
 
-* zookeeper
 * exhibitor
 
 # Usage
