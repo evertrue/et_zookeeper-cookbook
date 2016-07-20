@@ -9,7 +9,7 @@ override['exhibitor']['cli']['configtype'] = 's3'
 override['exhibitor']['cli']['s3region'] = 'us-east-1'
 override['exhibitor']['cli']['s3config'] = "ops.evertrue.com:zookeeper-#{node.chef_environment}"
 
-default['et_exhibitor']['defaultconfig']['zoo_cfg_extra'] = {
+default['et_exhibitor']['defaultconfig']['zoo-cfg-extra'] = {
   'tickTime' => '2000',
   'initLimit' => '11',
   'syncLimit' => '17',

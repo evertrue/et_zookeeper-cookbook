@@ -12,8 +12,8 @@ aws_creds = data_bag_item('secrets', 'aws_credentials')['ZookeeperS3']
 node.override['exhibitor']['s3']['access-key-id'] = aws_creds['access_key_id']
 node.override['exhibitor']['s3']['access-secret-key'] = aws_creds['secret_access_key']
 
-node.override['exhibitor']['config']['zoo_cfg_extra'] =
-  node['et_exhibitor']['defaultconfig']['zoo_cfg_extra']
+node.override['exhibitor']['config']['zoo-cfg-extra'] =
+  node['et_exhibitor']['defaultconfig']['zoo-cfg-extra']
   .map { |k, v| "#{k}\\=#{v}" }.join '&'
 
 include_recipe 'exhibitor'
