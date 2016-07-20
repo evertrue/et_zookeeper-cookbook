@@ -1,6 +1,3 @@
-override['java']['jdk_version'] = '7'
-override['build-essential']['compile_time'] = true
-
 override['zookeeper']['service_style'] = 'exhibitor'
 
 override['zookeeper']['config']['dataDir'] = '/mnt/zookeeper'
