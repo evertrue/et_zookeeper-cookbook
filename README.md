@@ -11,7 +11,6 @@ ensemble.
 
 # Requirements
 
-* apt
 * zookeeper
 * exhibitor
 
@@ -48,7 +47,6 @@ Additional attributes provided by this cookbook:
 
 ## default
 
-1. Includes `apt::default` recipe to update apt on Debian systems
 2. Sets additional Zookeeper config for Exhibitor to use
 3. Includes `exhibitor::default`, which itself includes `zookeeper::install`, to install and set up Zookeeper and Exhibitor
 4. Includes `exhibitor::service`, to set up and start the Exhibitor service via `runit`

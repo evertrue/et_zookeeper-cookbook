@@ -18,7 +18,6 @@ describe 'et_zookeeper::default' do
   end
 
   %w(
-    apt::default
     exhibitor::default
     exhibitor::service
   ).each do |recipe|

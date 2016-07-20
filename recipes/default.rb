@@ -7,11 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-case node['platform_family']
-when 'debian'
-  include_recipe 'apt'
-end
-
 # Set credentials for S3 access
 aws_creds = data_bag_item('secrets', 'aws_credentials')['ZookeeperS3']
 node.override['exhibitor']['s3']['access-key-id'] = aws_creds['access_key_id']
