@@ -2,6 +2,15 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v4.0.0 (2016-07-22)
+-------------------
+* Update `exhibitor` cookbook to `~> v2.0`
+    - Also updates the `zookeeper` cookbook to `~> 5.0`
+* Drop unnecessary dependencies
+    - The `exhibitor` cookbook nicely wraps these, so simplifying the dep graph is a Good Thing™
+* Clean up README
+* Avoid using set/normal level attributes & drop unused/unnecessary attributes
+
 v3.0.0 (2016-05-18)
 -------------------
 * Update `exhibitor` cookbook
