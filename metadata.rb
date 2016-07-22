@@ -6,7 +6,4 @@ description      'Installs/Configures et_zookeeper'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '3.0.0'
 
-depends 'apt'
-depends 'build-essential'
-depends 'exhibitor', '~> 0.8.0'
-depends 'java'
+depends 'exhibitor', '~> 2.0'

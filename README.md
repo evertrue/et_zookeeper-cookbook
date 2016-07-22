@@ -11,10 +11,6 @@ ensemble.
 
 # Requirements
 
-* apt
-* build-essential
-* java
-* zookeeper
 * exhibitor
 
 # Usage
@@ -45,14 +41,11 @@ Additional attributes provided by this cookbook:
 * `node['exhibitor']['cli']['s3region']` – AWS region used to communicate w/ S3
 * `node['exhibitor']['cli']['s3config']` – S3 bucket & key name for the shared config file
 * `node['et_exhibitor']['defaultconfig']['zoo_cfg_extra']` – Additional values used for the initial bootstrap; these are used to seed the S3 config file if it doesn’t already exist
-* `node['java']['jdk_version']` – Which version of Java to install
-* `node[:build_essential][:compiletime]` — Ensure that `build-essential` is installed at compile time; needed for some RubyGems to install properly
 
 # Recipes
 
 ## default
 
-1. Includes `apt::default` recipe to update apt on Debian systems
 2. Sets additional Zookeeper config for Exhibitor to use
 3. Includes `exhibitor::default`, which itself includes `zookeeper::install`, to install and set up Zookeeper and Exhibitor
 4. Includes `exhibitor::service`, to set up and start the Exhibitor service via `runit`
