@@ -34,7 +34,6 @@ before_script:
 script:
 - cookstyle
 - foodcritic .
-- chef exec rspec
 - kitchen test -d always
 env:
   global:
