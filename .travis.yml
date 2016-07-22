@@ -29,10 +29,10 @@ install:
 before_script:
 - berks
 - chef --version
-- rubocop --version
+- cookstyle --version
 - foodcritic --version
 script:
-- rubocop
+- cookstyle
 - foodcritic .
 - chef exec rspec
 - kitchen test -d always
