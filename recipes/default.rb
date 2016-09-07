@@ -22,7 +22,8 @@ include_recipe 'exhibitor::service'
 if node.chef_environment == 'prod'
   node.override['et_monitoring']['datadog']['zookeeper'] = {
     instances: [{
-      url: 'http://localhost:2181',
+      host: 'localhost',
+      port: 2181,
       timeout: 8,
       tags: {
         zookeeper: node.chef_environment,
