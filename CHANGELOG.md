@@ -2,6 +2,13 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v4.0.2 (2016-09-07)
+-------------------
+* Test that datadog agent gets installed and configured
+* Move datadog config to attributes file with default precedence so that it will actually run
+* Switch to tcp-style test for datadog check
+* Stop definining the cookbook attribute for datadog
+
 v4.0.1 (2016-09-07)
 -------------------
 * Add Datadog attributes
