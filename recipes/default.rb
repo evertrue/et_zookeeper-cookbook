@@ -18,17 +18,3 @@ node.override['exhibitor']['config']['zoo-cfg-extra'] =
 
 include_recipe 'exhibitor'
 include_recipe 'exhibitor::service'
-
-if node.chef_environment == 'prod'
-  node.override['et_monitoring']['datadog']['zookeeper'] = {
-    instances: [{
-      host: 'localhost',
-      port: 2181,
-      timeout: 8,
-      tags: {
-        zookeeper: node.chef_environment,
-        env: node.chef_environment
-      }
-    }]
-  }
-end
