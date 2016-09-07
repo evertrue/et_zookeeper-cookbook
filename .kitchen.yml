@@ -26,4 +26,13 @@ platforms:
 
 suites:
 - name: default
-  run_list: recipe[et_zookeeper]
+  run_list:
+    - recipe[et_monitoring::agent]
+    - recipe[et_zookeeper]
+    - recipe[datadog_client::default]
+  attributes:
+    newrelic:
+      server_monitor_agent:
+        service_notify_action: nothing
+        service_actions:
+          - enable

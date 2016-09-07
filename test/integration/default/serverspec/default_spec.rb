@@ -41,3 +41,9 @@ describe 'Exhibitor Service' do
     it { should be_running }
   end
 end
+
+describe 'Datadog Agent' do
+  describe file '/etc/dd-agent/conf.d/zookeeper.yaml' do
+    it { is_expected.to be_file }
+  end
+end
