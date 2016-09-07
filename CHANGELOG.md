@@ -2,6 +2,10 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v4.0.1 (2016-09-07)
+-------------------
+* Add Datadog attributes
+
 v4.0.0 (2016-07-22)
 -------------------
 * Update `exhibitor` cookbook to `~> v2.0`
