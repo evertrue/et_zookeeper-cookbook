@@ -27,3 +27,5 @@ if node.chef_environment == 'prod'
     }]
   }
 end
+
+override['reboot_coordinator']['reboot_permitted'] = false
