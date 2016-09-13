@@ -2,6 +2,10 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v4.0.3 (2016-09-13)
+-------------------
+* Disable reboot coordinator
+
 v4.0.2 (2016-09-07)
 -------------------
 * Test that datadog agent gets installed and configured
