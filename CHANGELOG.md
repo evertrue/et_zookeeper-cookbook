@@ -2,6 +2,10 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v4.0.4 (2016-10-06)
+-------------------
+* Re-enable reboot coordinator
+
 v4.0.3 (2016-09-13)
 -------------------
 * Disable reboot coordinator
