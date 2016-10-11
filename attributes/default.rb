@@ -1,4 +1,4 @@
-default['zookeeper']['version']     = '3.4.6'
+default['zookeeper']['version']     = '3.4.9'
 
 default['et_zookeeper']['home_dir'] = '/mnt/zookeeper'
 default['et_zookeeper']['data_dir'] = "#{node['et_zookeeper']['home_dir']}/data"
