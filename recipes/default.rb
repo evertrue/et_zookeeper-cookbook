@@ -2,7 +2,7 @@
 # Cookbook Name:: et_zookeeper
 # Recipe:: default
 #
-# Copyright (C) 2013 EverTrue, Inc.
+# Copyright (C) 2016 EverTrue, Inc.
 #
 # All rights reserved - Do Not Redistribute
 #
