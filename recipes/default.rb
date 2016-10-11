@@ -18,3 +18,6 @@ node.override['exhibitor']['config']['zoo-cfg-extra'] =
 
 include_recipe 'exhibitor'
 include_recipe 'exhibitor::service'
+
+ohai_plugin 'et_zookeeper'
+ohai_plugin 'myid'

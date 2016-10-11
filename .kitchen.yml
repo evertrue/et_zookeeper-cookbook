@@ -32,6 +32,7 @@ suites:
     - recipe[et_monitoring::agent]
     - recipe[et_zookeeper]
     - recipe[datadog_client::default]
+    - recipe[myid_checker::default]
   attributes:
     newrelic:
       server_monitor_agent:
