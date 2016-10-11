@@ -14,6 +14,12 @@ describe 'et_zookeeper::default' do
       its(:content) { should include 'export ZOO_LOG_DIR=/mnt/zookeeper/logs' }
       its(:content) { should include 'export ZOO_LOG4J_PROP=INFO,ROLLINGFILE' }
     end
+
+    describe file '/opt/zookeeper/conf/zoo.cfg' do
+      its(:content) { should include 'server.6=zk1:2888:3888' }
+      its(:content) { should include 'server.11=zk2:2888:3888' }
+      its(:content) { should contain /server\..*=default-ubuntu-1404:2888:3888/ }
+    end
   end
 
   describe 'Datadog Agent' do

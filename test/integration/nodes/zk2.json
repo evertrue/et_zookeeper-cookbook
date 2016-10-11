@@ -1,0 +1,11 @@
+{
+  "name": "zk2",
+  "chef_environment": "_default",
+  "normal": {
+    "et_zookeeper": {
+      "cluster_name": "evertrue",
+      "myid": 11
+    }
+  },
+  "ipaddress": "10.0.20.1"
+}

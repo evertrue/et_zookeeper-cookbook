@@ -4,6 +4,8 @@ default['et_zookeeper']['home_dir'] = '/mnt/zookeeper'
 default['et_zookeeper']['data_dir'] = "#{node['et_zookeeper']['home_dir']}/data"
 default['et_zookeeper']['log_dir']  = "#{node['et_zookeeper']['home_dir']}/logs"
 
+default['et_zookeeper']['cluster_name'] = 'evertrue'
+
 if node.chef_environment == 'prod'
   default['et_monitoring']['datadog']['zookeeper'] = {
     instances: [{
