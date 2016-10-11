@@ -2,6 +2,11 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v4.0.5 (2016-10-11)
+-------------------
+* Add an Ohai plugin to read myid into an attribute (allows for compatibility with what we hope will be v5)
+* Modernize kitchen yaml
+
 v4.0.4 (2016-10-06)
 -------------------
 * Re-enable reboot coordinator
