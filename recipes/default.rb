@@ -6,6 +6,17 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+include_recipe 'storage'
+
+node.default['et_zookeeper']['home_dir'] =
+  if node['storage']['ephemeral_mounts']
+    "#{node['storage']['ephemeral_mounts'].first}/zookeeper"
+  else
+    '/mnt/zookeeper'
+  end
+
+node.default['et_zookeeper']['data_dir'] = "#{node['et_zookeeper']['home_dir']}/data"
+node.default['et_zookeeper']['log_dir']  = "#{node['et_zookeeper']['home_dir']}/logs"
 
 # Generate an ID from the node IP address
 myid = EtZookeeper::Helpers.name2id node.name
