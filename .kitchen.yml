@@ -1,18 +1,17 @@
 ---
 driver:
   name: ec2
+  require_chef_omnibus: 12.14.60
   aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_NAME'] %>
+  region: us-east-1
+  availability_zone: us-east-1b
   security_group_ids: ['ci-testing']
-  image_id: ami-bbef47d0
-  instance_type: m1.large
+  instance_type: c3.large
   interface: public
+  iam_profile_name: zookeeper
   tags:
-    Name: test-et-zookeeper
     Env: public
     Type: test
-    created-by: test-kitchen
-    Operator: <%= ENV['USER'] %>
-  iam_profile_name: zookeeper
 
 transport:
   name: sftp
@@ -23,6 +22,9 @@ provisioner:
 
 platforms:
 - name: ubuntu-14.04
+  driver:
+    tags:
+      Name: default-et-zookeeper-ubuntu-1404
 
 suites:
 - name: default
