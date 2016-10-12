@@ -7,17 +7,62 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# Set credentials for S3 access
-aws_creds = data_bag_item('secrets', 'aws_credentials')['ZookeeperS3']
-node.override['exhibitor']['s3']['access-key-id'] = aws_creds['access_key_id']
-node.override['exhibitor']['s3']['access-secret-key'] = aws_creds['secret_access_key']
+# Generate an ID from the node IP address
+myid = EtZookeeper::Helpers.name2id node.name
 
-node.override['exhibitor']['config']['zoo-cfg-extra'] =
-  node['et_exhibitor']['defaultconfig']['zoo-cfg-extra']
-  .map { |k, v| "#{k}\\=#{v}" }.join '&'
+# Find other nodes in the cluster
+zk_nodes = search(
+  :node,
+  "chef_environment:#{node.chef_environment} AND " \
+    "et_zookeeper_cluster_name:#{node['et_zookeeper']['cluster_name']}",
+  filter_result: {
+    'name' => %w(name),
+    'myid' => %w(et_zookeeper myid),
+    'ipaddress' => %w(ipaddress)
+  }
+)
 
-include_recipe 'exhibitor'
-include_recipe 'exhibitor::service'
+# Bail if my ID is not unique in the cluster
+zk_nodes.each do |zk_node|
+  next unless zk_node['name'] != node.name && zk_node['myid'] == myid
+  raise "myid #{myid} is already in use by #{zk_node['name']}"
+end
+
+node.default['et_zookeeper']['myid'] = myid
+
+zookeeper node['zookeeper']['version'] do
+  user_home node['et_zookeeper']['home_dir']
+  data_dir node['et_zookeeper']['data_dir']
+end
+
+file "#{node['et_zookeeper']['data_dir']}/myid" do
+  content myid.to_s
+  owner   'zookeeper'
+  group   'zookeeper'
+end
+
+config_hash = {
+  'dataDir' => node['et_zookeeper']['data_dir'],
+  'clientPort' => 2181,
+  'initLimit' => 11,
+  'syncLimit' => 17,
+  'autopurge.snapRetainCount' => 20,
+  'autopurge.purgeInterval' => 1
+}.merge(
+  zk_nodes.each_with_object({}) do |zk_node, m|
+    m["server.#{zk_node['myid']}"] = "#{zk_node['name']}:2888:3888"
+  end
+).merge("server.#{myid}" => "#{node.name}:2888:3888") # Ensure the local node is always included
+
+Chef::Log.debug("Zookeeper Config Hash: #{config_hash.inspect}")
+
+zookeeper_config 'zoo.cfg' do
+  config config_hash
+  env_vars('ZOO_LOG4J_PROP' => 'INFO,ROLLINGFILE')
+  log_dir node['et_zookeeper']['log_dir']
+end
+
+zookeeper_service 'zookeeper'
 
 ohai_plugin 'et_zookeeper'
 ohai_plugin 'myid'
