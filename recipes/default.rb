@@ -8,7 +8,7 @@
 #
 
 # Generate an ID from the node IP address
-myid = EtZookeeper::Helpers.ip2id node['ipaddress']
+myid = EtZookeeper::Helpers.name2id node.name
 
 # Find other nodes in the cluster
 zk_nodes = search(
