@@ -2,6 +2,12 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v5.0.0 (2016-10-13)
+-------------------
+* Drop exhibitor cookbook (and associated attributes) and use ZK cookbook directly
+* Bump ZK version: 3.4.9
+* Use storage cookbook to manage ephemeral storage
+
 v4.0.5 (2016-10-11)
 -------------------
 * Add an Ohai plugin to read myid into an attribute (allows for compatibility with what we hope will be v5)
