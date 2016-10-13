@@ -11,7 +11,7 @@ describe 'et_zookeeper::default' do
   describe 'Zookeeper config' do
     describe file '/opt/zookeeper/conf/zookeeper-env.sh' do
       it { should be_file }
-      its(:content) { should include 'export ZOO_LOG_DIR=/mnt/zookeeper/logs' }
+      its(:content) { should include 'export ZOO_LOG_DIR=/mnt/dev0/zookeeper/logs' }
       its(:content) { should include 'export ZOO_LOG4J_PROP=INFO,ROLLINGFILE' }
     end
 
