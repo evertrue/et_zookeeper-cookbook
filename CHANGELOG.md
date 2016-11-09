@@ -2,6 +2,10 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v5.0.1 (2016-11-09)
+-------------------
+* Bump initLimit to 100
+
 v5.0.0 (2016-10-13)
 -------------------
 * Drop exhibitor cookbook (and associated attributes) and use ZK cookbook directly
