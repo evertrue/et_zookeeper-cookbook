@@ -2,6 +2,11 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v5.0.2 (2016-11-10)
+-------------------
+* Pass java_opts to zookeeper_config resource
+* Let application cookbook set the version
+
 v5.0.1 (2016-11-09)
 -------------------
 * Bump initLimit to 100
