@@ -1,5 +1,3 @@
-default['zookeeper']['version']     = '3.4.9'
-
 default['et_zookeeper']['cluster_name'] = 'evertrue'
 
 if node.chef_environment == 'prod'
