@@ -70,6 +70,7 @@ Chef::Log.debug("Zookeeper Config Hash: #{config_hash.inspect}")
 zookeeper_config 'zoo.cfg' do
   config config_hash
   env_vars('ZOO_LOG4J_PROP' => 'INFO,ROLLINGFILE')
+  java_opts node['zookeeper']['java_opts']
   log_dir node['et_zookeeper']['log_dir']
 end
 
