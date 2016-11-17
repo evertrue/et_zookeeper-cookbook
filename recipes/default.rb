@@ -9,8 +9,8 @@
 include_recipe 'storage'
 
 node.default['et_zookeeper']['home_dir'] =
-  if node['storage']['ephemeral_mounts']
-    "#{node['storage']['ephemeral_mounts'].first}/zookeeper"
+  if node['storage']['ebs_mounts']
+    "#{node['storage']['ebs_mounts'].first}/zookeeper"
   else
     '/mnt/zookeeper'
   end
@@ -55,6 +55,7 @@ end
 config_hash = {
   'dataDir' => node['et_zookeeper']['data_dir'],
   'clientPort' => 2181,
+  'secureClientPort' => 2182,
   'initLimit' => 100,
   'syncLimit' => 17,
   'autopurge.snapRetainCount' => 20,
