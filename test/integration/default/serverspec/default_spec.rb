@@ -8,6 +8,10 @@ describe 'et_zookeeper::default' do
     # it { is_expected.to be_enabled.under('runit') }
   end
 
+  describe port 21_801 do
+    it { is_expected.to be_listening.with 'tcp6' }
+  end
+
   describe 'Zookeeper config' do
     describe file '/opt/zookeeper/conf/zookeeper-env.sh' do
       it { should be_file }

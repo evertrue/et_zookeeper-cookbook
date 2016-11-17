@@ -69,7 +69,12 @@ Chef::Log.debug("Zookeeper Config Hash: #{config_hash.inspect}")
 
 zookeeper_config 'zoo.cfg' do
   config config_hash
-  env_vars('ZOO_LOG4J_PROP' => 'INFO,ROLLINGFILE')
+  env_vars(
+    'ZOO_LOG4J_PROP' => 'INFO,ROLLINGFILE',
+    'JMXPORT' => node['et_zookeeper']['jmx_port'],
+    'JMXSSL' => 'true',
+    'JMXDISABLE' => !node['et_zookeeper']['jmx_enabled'] # lol double negatives. Thanks, Apache!
+  )
   java_opts node['zookeeper']['java_opts']
   log_dir node['et_zookeeper']['log_dir']
 end
