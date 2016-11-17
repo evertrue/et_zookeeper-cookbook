@@ -2,6 +2,10 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v5.0.3 (2016-11-17)
+-------------------
+* Enable JMX
+
 v5.0.2 (2016-11-10)
 -------------------
 * Pass java_opts to zookeeper_config resource
