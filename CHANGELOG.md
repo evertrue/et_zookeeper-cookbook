@@ -2,6 +2,12 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v5.0.4 (2017-02-07)
+-------------------
+* Optimize cluster settings
+    - `initLimit` to 120 seconds
+    - `autopurge.snapRetainCount` to 3
+
 v5.0.3 (2016-11-17)
 -------------------
 * Enable JMX
