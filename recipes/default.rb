@@ -55,7 +55,7 @@ end
 config_hash = {
   'dataDir' => node['et_zookeeper']['data_dir'],
   'clientPort' => 2181,
-  'initLimit' => 100,
+  'initLimit' => 120,
   'syncLimit' => 17,
   'autopurge.snapRetainCount' => 3,
   'autopurge.purgeInterval' => 1
