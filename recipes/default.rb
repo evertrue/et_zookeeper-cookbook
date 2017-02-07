@@ -57,7 +57,7 @@ config_hash = {
   'clientPort' => 2181,
   'initLimit' => 100,
   'syncLimit' => 17,
-  'autopurge.snapRetainCount' => 20,
+  'autopurge.snapRetainCount' => 3,
   'autopurge.purgeInterval' => 1
 }.merge(
   zk_nodes.each_with_object({}) do |zk_node, m|
