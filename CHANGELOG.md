@@ -2,6 +2,10 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v5.0.5 (2017-02-10)
+-------------------
+* Add a filebeat prospector
+
 v5.0.4 (2017-02-07)
 -------------------
 * Optimize cluster settings
