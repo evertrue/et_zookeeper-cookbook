@@ -15,3 +15,11 @@ if node.chef_environment == 'prod'
     }]
   }
 end
+
+default['filebeat']['prospectors']['zookeeper']['filebeat']['prospectors'] = [
+  {
+    'paths' => ["#{node['et_zookeeper']['home_dir']}/logs/zookeeper.log"],
+    'input_type' => 'log',
+    'document_type' => 'zookeeper'
+  }
+]
