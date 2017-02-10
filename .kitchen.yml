@@ -29,6 +29,7 @@ platforms:
 suites:
 - name: default
   run_list:
+    - recipe[et_logger::forwarder]
     - recipe[et_monitoring::agent]
     - recipe[et_zookeeper]
     - recipe[datadog_client::default]
