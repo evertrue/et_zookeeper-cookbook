@@ -8,4 +8,5 @@ version          '5.0.5'
 
 depends 'zookeeper', '~> 8.0'
 depends 'storage'
+depends 'filebeat'
 depends 'ohai', '>= 4.0'
