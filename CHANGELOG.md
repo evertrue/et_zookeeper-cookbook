@@ -2,6 +2,10 @@ et_zookeeper cookbook CHANGELOG
 ===============================
 Changes for the et_zookeeper wrapper cookbook
 
+v5.0.6 (2017-02-10)
+-------------------
+* Make filebeat prospector an LWRP rather than an attribute
+
 v5.0.5 (2017-02-10)
 -------------------
 * Add a filebeat prospector
