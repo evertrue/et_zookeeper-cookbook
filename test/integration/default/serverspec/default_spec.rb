@@ -31,4 +31,17 @@ describe 'et_zookeeper::default' do
       it { is_expected.to be_file }
     end
   end
+
+  describe 'filebeat prospector' do
+    describe file '/etc/filebeat/conf.d/prospector-zookeeper.yml' do
+      it { is_expected.to be_file }
+      its(:content) { should include '---
+filebeat:
+  prospectors:
+  - paths:
+    - "/mnt/dev0/zookeeper/logs/zookeeper.log"
+    document_type: zookeeper
+    input_type: log' }
+    end
+  end
 end
