@@ -83,9 +83,3 @@ zookeeper_service 'zookeeper'
 
 ohai_plugin 'et_zookeeper'
 ohai_plugin 'myid'
-
-filebeat_prospector 'zookeeper' do
-  paths ["#{node['et_zookeeper']['home_dir']}/logs/zookeeper.log"]
-  document_type 'zookeeper'
-  input_type 'log'
-end
